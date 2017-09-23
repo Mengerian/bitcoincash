@@ -1,11 +1,12 @@
 // A comma separated list of currencies to display.
-var ticker_currencies = "USD,BTC,ETH,JPY,CNY"
+var ticker_currencies = "USD,EUR,JPY,CNY"
 
 ticker = function(currencies) {
   var symbols = {
     USD: "$",
     CNY: "¥",
-    JPY: "¥"
+    JPY: "¥",
+    EUR: "€"
   }
 
   $.ajax({
@@ -24,7 +25,7 @@ ticker = function(currencies) {
         if (sym === undefined) {
           sym = "";
         }
-        output.push(currency + "&nbsp;-&nbsp;" + sym + price);
+        output.push("BCC/" + currency + "&nbsp;" + sym + price);
       });
 
       $('#ticker_value').html(output.join(" &bull; "));
